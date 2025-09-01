@@ -1,7 +1,7 @@
 resource "aws_instance" "jenkins" {
   ami                    = local.ami_id
   instance_type          = "t3.small"
-  vpc_security_group_ids = [aws_security_group.main.id]
+  vpc_security_group_ids = [aws_security_group.jenkins.id]
   subnet_id              = "subnet-08c3a3ba63ceab095"
 
 # need more for terraform
@@ -23,7 +23,7 @@ user_data = file("jenkins-node.sh")
 resource "aws_instance" "jenkins-agent" {
   ami                    = local.ami_id
   instance_type          = "t3.small"
-  vpc_security_group_ids = [aws_security_group.main.id]
+  vpc_security_group_ids = [aws_security_group.jenkins.id]
   subnet_id              = "subnet-08c3a3ba63ceab095"
 
 # need more for terraform
