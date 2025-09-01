@@ -33,6 +33,17 @@ systemctl start docker
 systemctl enable docker
 usermod -aG docker ec2-user
 
+## Helm Installation
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+
+## Java and Python Installation
+yum install -y python3-devel gcc gcc-c++ make
+yum install maven -y
+
+
+## Kubectl Installation
+curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.0/2024-07-11/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl

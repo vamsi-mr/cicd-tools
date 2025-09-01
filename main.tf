@@ -42,7 +42,7 @@ user_data = file("jenkins-agent.sh")
   )
 }
 
-resource "aws_security_group" "main" {
+resource "aws_security_group" "jenkins" {
   name = "${var.project}-${var.environment}-jenkins"
   description = "created to attach to jenkins and its agents"
 
